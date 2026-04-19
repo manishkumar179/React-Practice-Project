@@ -1,0 +1,173 @@
+.app{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Full screen background */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card container */
+.card {
+  width: 300px;
+  padding: 30px 20px;
+  border-radius: 25px;
+  text-align: center;
+  position: relative;
+
+  /* glass effect */
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+  color: #fff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Glow border effect */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  padding: 2px;
+
+  background: linear-gradient(45deg, #00dbde, #fc00ff);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Hover animation */
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+/* Weather icon */
+.card img {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+}
+
+/* Temperature */
+.card h2 {
+  font-size: 55px;
+  margin: 10px 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Add °C automatically */
+.card h2::after {
+  content: "°C";
+  font-size: 20px;
+  vertical-align: top;
+  margin-left: 5px;
+}
+
+/* Location */
+.card h5 {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.85;
+  margin-top: 5px;
+}
+
+/* Loading text */
+.card p {
+  font-size: 16px;
+  color: #ddd;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .card {
+    width: 90%;
+  }
+
+  .card h2 {
+    font-size: 45px;
+  }
+}
+
+
+
+
+/* Input container */
+.inp-field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Input styling */
+.inp-field input {
+  width: 280px;
+  padding: 14px 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+
+  /* glass effect */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: #fff;
+  font-size: 16px;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+  transition: all 0.3s ease;
+}
+
+/* Placeholder */
+.inp-field input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Focus effect */
+.inp-field input:focus {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6),
+              0 0 20px rgba(255, 0, 255, 0.4);
+}
+
+/* Hover effect */
+.inp-field input:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn{
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.btn:active{
+  scale: 0.95;
+}

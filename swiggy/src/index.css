@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: gilroy;
+    src: url("./assets/Gilroy-Bold.woff2");
+}
+
+*{
+    font-family: gilroy;
+}
