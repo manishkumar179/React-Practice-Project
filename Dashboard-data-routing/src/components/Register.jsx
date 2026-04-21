@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 
 const Register = () => {
 
-  let {setToggle , registeredUser , setRegisteredUser} = useContext(MyStore)
+  let {setToggle } = useContext(MyStore)
 
 
   let {register , handleSubmit , reset} = useForm()

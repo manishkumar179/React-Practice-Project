@@ -2,6 +2,7 @@ import React from "react";
 import { BookmarkPlus, EllipsisVertical, MonitorPlay, Search, SquarePen } from "lucide-react";
 
 const Dashboard = () => {
+
   return (
     <div className="flex h-[100%] gap-4 ">
       <div className="w-[70%] h-screen gap-5 flex flex-col">
