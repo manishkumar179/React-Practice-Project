@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Dashboard from '../screens/Dashboard';
@@ -13,8 +13,31 @@ import ProtectedRoute from '../components/ProtectedRoute';
 import MainLayout from '../layouts/MainLayout';
 import Home from '../components/Home';
 import PublicRoute from '../components/PublicRoute';
+import axios from 'axios';
+import { addUser, removeUser } from '../../features/authSlice';
+import { useDispatch } from 'react-redux';
 
 const AppRouter = () => {
+
+    let dispatch = useDispatch()
+
+    useEffect(() => {
+    let callMeApi = async () => {
+      try {
+        let res = await axios.get("http://localhost:3000/me", {
+          withCredentials: true,
+        });
+        console.log("me api", res);
+
+        dispatch(addUser(res.data.user));
+      } catch (error) {
+        dispatch(removeUser());
+        console.log("error in me api", error);
+      }
+    };
+
+    callMeApi();
+  }, []);
 
     const router = createBrowserRouter([
 
